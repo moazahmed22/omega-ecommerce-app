@@ -16,6 +16,7 @@ export function CartTable() {
   // call user cart
   const { cartDetails, getCartDetails } = useCart();
   const cartContent = cartDetails?.data;
+  const numberOfCartItems = cartDetails?.numOfCartItems || null;
 
   // handle item update
   const handleProductUpdate = async (productId: string, count: number) => {
@@ -178,9 +179,9 @@ export function CartTable() {
             </div>
             <div className="flex justify-center">
               <button
-                disabled={sessionData ? true : false}
+                disabled={sessionData && numberOfCartItems ? true : false}
                 className={`apply-coupon text-background rounded-md px-12 py-4 ${
-                  sessionData
+                  sessionData && numberOfCartItems
                     ? "cursor-pointer bg-primary"
                     : "cursor-not-allowed bg-primary/60"
                 }`}
