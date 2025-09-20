@@ -22,20 +22,18 @@ const ShoppingSectionItem = ({
       break;
   }
   return (
-    <Link href={`/${subTitle}`} className="group">
-      <div className="flex flex-col text-center">
-        <div className="item-image relative w-40 h-40 rounded-full overflow-hidden border-secondary border-2 group-[&:hover]:border-primary duration-75">
-          <Image
-            src={item?.image}
-            alt={"item"}
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-contain object-center"
-          />
-        </div>
-        <p className="item-title mt-5 font-bold">{item?.name}</p>
+    <div className="flex flex-col text-center">
+      <div className="item-image relative w-40 h-40 rounded-full overflow-hidden border-secondary border-2 group-[&:hover]:border-primary duration-75">
+        <Image
+          src={item?.image}
+          alt={"item"}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="object-contain object-center"
+        />
       </div>
-    </Link>
+      <p className="item-title mt-5 font-bold">{item?.name}</p>
+    </div>
   );
 };
 
