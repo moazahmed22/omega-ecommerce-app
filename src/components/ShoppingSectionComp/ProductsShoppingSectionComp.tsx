@@ -32,6 +32,7 @@ const ProductsShoppingSectionItem = ({
     const response = await addProductToWishlist(productId);
     if (response?.data.length === 0) {
       toast.error("you need to login first");
+      console.log(response);
     } else {
       toast.success("product added successfuly to your wishlist");
       await getWishlistDetails();

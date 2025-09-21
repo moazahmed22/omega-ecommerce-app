@@ -12,10 +12,13 @@ import {
 import { signOut, useSession } from "next-auth/react";
 import { useCart } from "@/app/context/CartContext/CartContext";
 import { useWishlist } from "@/app/context/WishlistContext/WishlistContext";
+import { DropdownMenuLabel } from "@radix-ui/react-dropdown-menu";
 
 const ProfileComp = () => {
   // get session data
   const { data: sessionData } = useSession();
+  // get logged user
+  const user = sessionData?.user;
 
   // call cart & wishtlist on session change
   const { getCartDetails } = useCart();
@@ -71,6 +74,12 @@ const ProfileComp = () => {
             ) : (
               <>
                 {" "}
+                <DropdownMenuLabel
+                  className={`flex gap-2 capitalize font-medium w-full px-2 py-1.5`}
+                >
+                  <User className="!w-5 !h-5" />
+                  {user?.name}
+                </DropdownMenuLabel>
                 <DropdownMenuItem>
                   <Link
                     href="/wishlist"
