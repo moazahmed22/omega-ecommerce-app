@@ -1,7 +1,14 @@
 import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
-export const OPTIONS: NextAuthOptions = {
+
+declare module "next-auth" {
+  interface Session {
+    token?: string;
+  }
+}
+
+export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       // The name to display on the sign in form (e.g. 'Sign in with...')
@@ -49,6 +56,6 @@ export const OPTIONS: NextAuthOptions = {
     },
   },
 };
-const handler = NextAuth(OPTIONS);
+const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST };

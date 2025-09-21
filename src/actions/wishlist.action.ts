@@ -50,8 +50,6 @@ const removeProductFromWishlist = async (productId: string) => {
       `https://ecommerce.routemisr.com/api/v1/wishlist/${productId}`,
       { headers: { token: token as string } }
     );
-    console.log(response);
-
     return { data: response?.data, status: response.status };
   } catch (error) {
     if (axios.isAxiosError(error)) {

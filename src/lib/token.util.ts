@@ -1,18 +1,13 @@
-import { decode } from "next-auth/jwt";
-import { cookies } from "next/headers";
+// utils/getUserToken.ts
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { getServerSession } from "next-auth";
 
 export const getUserToken = async () => {
   try {
-    const encodedToken = (await cookies()).get(
-      "next-auth.session-token"
-    )?.value;
-    const decodedToken = await decode({
-      token: encodedToken,
-      secret: process.env.AUTH_SECRET!,
-    });
-    const token = decodedToken?.token;
-    return token;
+    const session = await getServerSession(authOptions);
+    return session?.token ?? null;
   } catch (error) {
-    console.log(error);
+    console.error("Error fetching session:", error);
+    return null;
   }
 };
