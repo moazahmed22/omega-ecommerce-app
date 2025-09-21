@@ -16,7 +16,7 @@ const getUserWhishlist = async () => {
     if (axios.isAxiosError(error)) {
       return {
         data: [],
-        message: error.response?.status || "data couldn't be fetched",
+        message: error.response?.data?.message || "data couldn't be fetched",
       };
     }
   }
@@ -31,14 +31,12 @@ const addProductToWishlist = async (productId: string) => {
       { productId },
       { headers: { token: token as string } }
     );
-    console.log(response);
-
     return { data: response?.data, status: response.status };
   } catch (error) {
     if (axios.isAxiosError(error)) {
       return {
         data: [],
-        message: error.response?.status || "data couldn't be fetched",
+        message: error?.response?.data?.message || "data couldn't be fetched",
       };
     }
   }
@@ -59,7 +57,7 @@ const removeProductFromWishlist = async (productId: string) => {
     if (axios.isAxiosError(error)) {
       return {
         data: [],
-        message: error.response?.status || "data couldn't be fetched",
+        message: error.response?.data.message || "data couldn't be fetched",
       };
     }
   }

@@ -16,7 +16,7 @@ const getUserCart = async () => {
     if (axios.isAxiosError(error)) {
       return {
         data: [],
-        message: error.response?.status || "data couldn't be fetched",
+        message: error.response?.data.message || "data couldn't be fetched",
       };
     }
   }
@@ -36,7 +36,7 @@ const addProductToCart = async (productId: string) => {
     if (axios.isAxiosError(error)) {
       return {
         data: [],
-        message: error.response?.status || "data couldn't be fetched",
+        message: error.response?.data.message || "data couldn't be fetched",
       };
     }
   }
@@ -51,14 +51,12 @@ const updateProductQuantity = async (productId: string, count: number) => {
       { count },
       { headers: { token: token as string } }
     );
-    console.log(response);
-
     return { data: response?.data, status: response.status };
   } catch (error) {
     if (axios.isAxiosError(error)) {
       return {
         data: [],
-        message: error.response?.status || "data couldn't be fetched",
+        message: error.response?.data.message || "data couldn't be fetched",
       };
     }
   }
@@ -72,14 +70,12 @@ const removeProductFromCart = async (productId: string) => {
       `https://ecommerce.routemisr.com/api/v1/cart/${productId}`,
       { headers: { token: token as string } }
     );
-    console.log(response);
-
     return { data: response?.data, status: response.status };
   } catch (error) {
     if (axios.isAxiosError(error)) {
       return {
         data: [],
-        message: error.response?.status || "data couldn't be fetched",
+        message: error.response?.data.message || "data couldn't be fetched",
       };
     }
   }

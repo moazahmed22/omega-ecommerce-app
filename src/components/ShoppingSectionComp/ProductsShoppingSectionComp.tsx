@@ -31,17 +31,16 @@ const ProductsShoppingSectionItem = ({
   const handleAddToWishlist = async (productId: string) => {
     const response = await addProductToWishlist(productId);
     if (response?.data.length === 0) {
-      toast.error("you need to login first");
-      console.log(response);
+      toast.error(response?.message);
     } else {
-      toast.success("product added successfuly to your wishlist");
+      toast.success(response?.data.message);
       await getWishlistDetails();
     }
   };
   // 4. handle remove from wishlist
   const handleRemoveFromWishlist = async (productId: string) => {
-    await removeProductFromWishlist(productId);
-    toast.success("product was removed successfuly from your wishlist");
+    const response = await removeProductFromWishlist(productId);
+    toast.success(response?.data.message);
     await getWishlistDetails();
   };
 
@@ -51,10 +50,12 @@ const ProductsShoppingSectionItem = ({
   // async function to add product to cart
   const handleAddToCart = async (id: string) => {
     const response = await addProductToCart(id);
+    console.log(response);
+
     if (response?.data.length === 0) {
-      toast.error("you need to login first");
+      toast.error(response?.message);
     } else {
-      toast.success("product added to your cart successfuly");
+      toast.success(response?.data.message);
       await getCartDetails();
     }
   };
