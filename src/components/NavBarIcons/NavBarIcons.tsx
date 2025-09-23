@@ -15,13 +15,13 @@ const NavBarIcons = () => {
   return (
     <>
       {sessionData && (
-        <NavigationMenuItem>
+        <NavigationMenuItem className="hidden md:flex">
           <Link href="/wishlist" className={`capitalize font-bold`}>
             <Heart />
           </Link>
         </NavigationMenuItem>
       )}
-      <NavigationMenuItem>
+      <NavigationMenuItem className="hidden md:flex">
         <Link href="/cart" className={`capitalize font-bold relative`}>
           {numberOfCartItems && (
             <Badge

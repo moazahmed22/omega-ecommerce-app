@@ -19,11 +19,11 @@ import NavBarIcons from "../NavBarIcons/NavBarIcons";
 
 const Navbar = () => {
   return (
-    <>
-      <div className="container bg-background md:min-w-[fit-content] m-auto pt-10 pb-5 sticky top-0 left-0 right-0 z-20 md:relative">
+    <div className="w-full bg-background md:min-w-[fit-content] sticky top-0 left-0 right-0 z-20 md:relative">
+      <div className="container mx-auto pt-10 pb-5">
         <NavigationMenu className="justify-between md:gap-5 items-center min-w-full">
           {/* drop down on smaller screens*/}
-          <div className="block md:hidden me-4">
+          {/* <div className="block md:hidden me-4">
             <NavigationMenuList>
               <DropdownMenu>
                 <DropdownMenuTrigger className="focus-visible:outline-0">
@@ -58,10 +58,10 @@ const Navbar = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
             </NavigationMenuList>
-          </div>
+          </div> */}
           {/* site name */}
           <NavigationMenuList>
-            <NavigationMenuItem className="hidden md:block">
+            <NavigationMenuItem className="block">
               <Link
                 href="/"
                 className="capitalize text-2xl font-bold leading-1"
@@ -123,7 +123,7 @@ const Navbar = () => {
           </NavigationMenuList>
         </NavigationMenu>
       </div>
-    </>
+    </div>
   );
 };
 

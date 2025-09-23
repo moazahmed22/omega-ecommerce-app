@@ -49,14 +49,14 @@ const MainSlider = () => {
         {/* Left Arrow */}
         <div
           onClick={prevSlide}
-          className="h-16 w-16 flex justify-center items-center text-primary bg-accent shadow-[0_0_0_10px_#fff] rounded-full absolute top-[50%] left-0 translate-x-[-50%] translate-y-[-50%] text-2xl p-2 cursor-pointer"
+          className="h-16 w-16 flex justify-center items-center text-primary bg-accent shadow-[0_0_0_10px_#fff] rounded-full absolute top-[50%] left-0 md:translate-x-[-50%] translate-y-[-50%] text-2xl p-2 cursor-pointer"
         >
           <ChevronLeft />
         </div>
         {/* Right Arrow */}
         <div
           onClick={nextSlide}
-          className="h-16 w-16 flex justify-center items-center text-primary bg-accent shadow-[0_0_0_10px_#fff] rounded-full absolute top-[50%] right-0 translate-x-[50%] translate-y-[-50%] text-2xl p-2 cursor-pointer"
+          className="h-16 w-16 flex justify-center items-center text-primary bg-accent shadow-[0_0_0_10px_#fff] rounded-full absolute top-[50%] right-0 md:translate-x-[50%] translate-y-[-50%] text-2xl p-2 cursor-pointer"
         >
           <ChevronRight />
         </div>
